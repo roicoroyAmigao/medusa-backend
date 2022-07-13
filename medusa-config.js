@@ -64,26 +64,24 @@ const plugins = [
   {
     resolve: `medusa-file-cloudinary`,
     options: {
-      cloud_name: process.env.CLOUDINARY_NAME, //'roicoroy',
-      api_key: process.env.CLOUDINARY_KEY, //'854797375527335',
-      api_secret: process.env.CLOUDINARY_SECRET, //'3ELa56bTj-tjdmraafVDGon5p1M',
+      cloud_name: process.env.CLOUDINARY_NAME,
+      api_key: process.env.CLOUDINARY_KEY,
+      api_secret: process.env.CLOUDINARY_SECRET,
       secure: true,
     },
   },
 ];
 
-// const ADMIN_CORS = process.env.ADMIN_CORS || 'http://localhost:7000,http://localhost:7001,http://localhost:7002,http://localhost:1337/,http://localhost:9000/,http://localhost:9001/';
-// const STORE_CORS = process.env.STORE_CORS || 'http://localhost:8100,http://localhost:8101,http://localhost:8000,http://localhost:8001,capacitor://localhost,http://localhost:1337/,http://localhost:4200/,http://localhost:4201/,http://localhost:9000/,http://localhost:9001/';
+const ADMIN_CORS = process.env.ADMIN_CORS || 'http://localhost:7000,http://localhost:7001,http://localhost:7002,http://localhost:1337,http://localhost:9000,http://localhost:9001';
+const STORE_CORS = process.env.STORE_CORS || 'http://localhost:8100,http://localhost:8101,http://localhost:8000,http://localhost:8001,capacitor://localhost,http://localhost:1337,http://localhost:4200,http://localhost:4201,http://localhost:9000,http://localhost:9001';
 
 module.exports = {
   projectConfig: {
     redis_url: process.env.REDIS_URL,
     database_url: DATABASE_URL,
     database_type: "postgres",
-    // database_database: "./medusa-db.sql",
-    // database_type: "sqlite",
-    store_cors: 'http://localhost:4200,http://localhost:4201,http://localhost:8100',
-    admin_cors: process.env.ADMIN_CORS,
+    store_cors: STORE_CORS,
+    admin_cors: ADMIN_CORS,
     jwtSecret: process.env.JWT_SECRET,
     cookieSecret: process.env.COOKIE_SECRET,
   },
